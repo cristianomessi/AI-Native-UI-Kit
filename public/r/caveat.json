@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "caveat",
+  "type": "registry:component",
+  "title": "Caveat",
+  "description": "A disclaimer banner that warns users about AI limitations.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/caveat/index.tsx",
+      "target": "components/ui/caveat/index.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport { AlertTriangle } from \"lucide-react\";\nimport type { ReactNode } from \"react\";\n\nexport interface CaveatProps {\n  /** Message text. */\n  children?: ReactNode;\n  /** Optional \"Learn more\" link target. */\n  learnMoreHref?: string;\n  /** Tone of the disclaimer. */\n  tone?: \"warning\" | \"info\" | \"neutral\";\n  className?: string;\n}\n\nconst tones = {\n  warning:\n    \"border-amber-400/60 bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-500/40\",\n  info: \"border-blue-400/60 bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300 dark:border-blue-500/40\",\n  neutral:\n    \"border-zinc-300 bg-zinc-50 text-zinc-600 dark:bg-zinc-900 dark:text-zinc-300 dark:border-zinc-700\",\n};\n\n/** A disclaimer banner warning users about AI limitations. */\nexport function Caveat({\n  children = \"AI responses can be inaccurate or misleading.\",\n  learnMoreHref,\n  tone = \"warning\",\n  className = \"\",\n}: CaveatProps) {\n  return (\n    <div\n      role=\"note\"\n      className={\n        \"flex items-center gap-2.5 rounded-xl border px-4 py-3 text-sm font-medium \" +\n        tones[tone] +\n        \" \" +\n        className\n      }\n    >\n      <AlertTriangle size={16} className=\"shrink-0\" />\n      <span>\n        {children}{\" \"}\n        {learnMoreHref && (\n          <a\n            href={learnMoreHref}\n            className=\"underline underline-offset-2 hover:opacity-80\"\n          >\n            Learn more\n          </a>\n        )}\n      </span>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

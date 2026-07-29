@@ -1,0 +1,31 @@
+---
+title: AI Button
+description: A gradient call-to-action button for AI-powered actions.
+---
+
+<Preview>
+  <AIButton />
+</Preview>
+
+## Installation
+
+```bash
+npx shadcn@latest add https://ai-native-ui.com/r/ai-button.json
+```
+
+## Usage
+
+```tsx
+import { AIButton } from "@/components/ui/ai-button";
+
+<AIButton onClick={() => generate()}>Create With AI</AIButton>;
+```
+
+## Props
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `children` | `ReactNode` | Label. Defaults to `"Create With AI"`. |
+| `size` | `"sm" \| "md" \| "lg"` | Button size. |
+| `hideIcon` | `boolean` | Hide the leading sparkle. |
+| `...button` | `ButtonHTMLAttributes` | All native button props (`onClick`, `disabled`, …). |

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "follow-up",
+  "type": "registry:component",
+  "title": "Follow-up Suggestions",
+  "description": "A compact follow-up input with clickable suggestion chips.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/follow-up/index.tsx",
+      "target": "components/ui/follow-up/index.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport { ArrowUp, Plus } from \"lucide-react\";\nimport { useState } from \"react\";\n\nexport interface FollowUpProps {\n  /** Suggested follow-up prompts shown as chips. */\n  suggestions?: string[];\n  placeholder?: string;\n  onSend?: (text: string) => void;\n  /** Fires when a suggestion chip is clicked. */\n  onSelect?: (text: string) => void;\n  className?: string;\n}\n\nconst DEFAULT_SUGGESTIONS = [\n  \"Identify key trends\",\n  \"Consider another perspective\",\n  \"Find more sources\",\n];\n\n/** A compact follow-up input with clickable suggestion chips. */\nexport function FollowUp({\n  suggestions = DEFAULT_SUGGESTIONS,\n  placeholder = \"Ask a follow up...\",\n  onSend,\n  onSelect,\n  className = \"\",\n}: FollowUpProps) {\n  const [value, setValue] = useState(\"\");\n\n  const submit = (text: string) => {\n    if (!text.trim()) return;\n    onSend?.(text);\n    setValue(\"\");\n  };\n\n  return (\n    <div className={\"flex w-full max-w-md flex-col gap-3 \" + className}>\n      <div className=\"flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-2 py-1.5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900\">\n        <button\n          type=\"button\"\n          aria-label=\"Add context\"\n          className=\"grid size-8 place-items-center rounded-full text-zinc-500 transition-colors hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800\"\n        >\n          <Plus size={17} />\n        </button>\n        <input\n          value={value}\n          onChange={(e) => setValue(e.target.value)}\n          onKeyDown={(e) => e.key === \"Enter\" && submit(value)}\n          placeholder={placeholder}\n          className=\"w-full bg-transparent text-sm text-zinc-700 outline-none placeholder:text-zinc-400 dark:text-zinc-200\"\n        />\n        <button\n          type=\"button\"\n          onClick={() => submit(value)}\n          disabled={!value.trim()}\n          aria-label=\"Send\"\n          className=\"grid size-8 place-items-center rounded-full bg-zinc-900 text-white transition-opacity disabled:opacity-40 dark:bg-white dark:text-zinc-900\"\n        >\n          <ArrowUp size={16} />\n        </button>\n      </div>\n\n      <div className=\"flex flex-wrap gap-2\">\n        {suggestions.map((s) => (\n          <button\n            key={s}\n            type=\"button\"\n            onClick={() => (onSelect ? onSelect(s) : submit(s))}\n            className=\"rounded-full border border-zinc-200 bg-white px-3.5 py-1.5 text-sm text-zinc-600 transition-colors hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800\"\n          >\n            {s}\n          </button>\n        ))}\n      </div>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

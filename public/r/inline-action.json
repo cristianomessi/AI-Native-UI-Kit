@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inline-action",
+  "type": "registry:component",
+  "title": "Inline Action",
+  "description": "A block of content with a floating contextual AI action.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/inline-action/index.tsx",
+      "target": "components/ui/inline-action/index.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport { PenLine } from \"lucide-react\";\nimport type { ReactNode } from \"react\";\n\nexport interface InlineActionProps {\n  /** The content the action applies to. */\n  children: ReactNode;\n  /** Action button label. */\n  label?: string;\n  /** Leading icon. */\n  icon?: ReactNode;\n  onAction?: () => void;\n  className?: string;\n}\n\n/**\n * A block of content with a floating contextual AI action — e.g. a\n * selection that can be improved, rewritten, or summarized.\n */\nexport function InlineAction({\n  children,\n  label = \"Improve Writing\",\n  icon = <PenLine size={15} />,\n  onAction,\n  className = \"\",\n}: InlineActionProps) {\n  return (\n    <div className={\"relative w-full max-w-md \" + className}>\n      <div className=\"rounded-xl border border-zinc-200 bg-white p-5 text-sm leading-relaxed text-zinc-600 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300\">\n        <span className=\"rounded bg-fuchsia-500/10 box-decoration-clone px-0.5 text-zinc-700 dark:text-zinc-200\">\n          {children}\n        </span>\n      </div>\n      <button\n        type=\"button\"\n        onClick={onAction}\n        className=\"absolute -bottom-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-lg bg-zinc-900 px-4 py-2.5 text-sm font-medium text-white shadow-lg transition-all hover:bg-zinc-800 active:scale-[0.97] dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200\"\n      >\n        {icon}\n        {label}\n      </button>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

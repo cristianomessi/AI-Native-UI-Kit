@@ -1,0 +1,34 @@
+---
+title: Attachment Composer
+description: A composer that shows attached files as removable chips.
+---
+
+<Preview>
+  <AttachmentComposer />
+</Preview>
+
+## Installation
+
+```bash
+npx shadcn@latest add https://ai-native-ui.com/r/attachment-composer.json
+```
+
+## Usage
+
+```tsx
+import { AttachmentComposer } from "@/components/ui/attachment-composer";
+
+<AttachmentComposer
+  onSend={(text, files) => submit(text, files)}
+  onAttach={(files) => upload(files)}
+/>;
+```
+
+## Props
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `placeholder` | `string` | Input placeholder. |
+| `defaultAttachments` | `Attachment[]` | Initial file chips. |
+| `onSend` | `(text: string, attachments: Attachment[]) => void` | Fires on submit. |
+| `onAttach` | `(files: FileList \| null) => void` | Fires when files are picked. |

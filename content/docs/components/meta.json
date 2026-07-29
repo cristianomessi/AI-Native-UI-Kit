@@ -1,4 +1,14 @@
 {
   "title": "Components",
-  "pages": ["prompt-composer"]
+  "pages": [
+    "prompt-composer",
+    "private-composer",
+    "attachment-composer",
+    "follow-up",
+    "inline-action",
+    "response-actions",
+    "parameters",
+    "caveat",
+    "ai-button"
+  ]
 }

@@ -1,0 +1,37 @@
+---
+title: Parameters
+description: A panel of sliders and a seed field for tuning generation parameters.
+---
+
+<Preview>
+  <Parameters />
+</Preview>
+
+## Installation
+
+```bash
+npx shadcn@latest add https://ai-native-ui.com/r/parameters.json
+```
+
+## Usage
+
+```tsx
+import { Parameters } from "@/components/ui/parameters";
+
+<Parameters
+  sliders={[
+    { id: "prompt", label: "Prompt strength", value: 57 },
+    { id: "style", label: "Style strength", value: 78 },
+  ]}
+  onChange={(values) => console.log(values)}
+/>;
+```
+
+## Props
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `sliders` | `ParameterSlider[]` | Slider config (`id`, `label`, `value`, optional `hint`). |
+| `seed` | `number` | Initial seed value. |
+| `onChange` | `(values: Record<string, number>) => void` | Fires on slider change. |
+| `onSeedChange` | `(seed: number) => void` | Fires when the seed changes. |

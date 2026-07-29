@@ -18,6 +18,64 @@ const registry = [
     dir: "src/components/ui/prompt-composer",
     dependencies: [],
   },
+  {
+    name: "private-composer",
+    title: "Private Composer",
+    description: "A dark, compact prompt composer with a private-mode toggle.",
+    dir: "src/components/ui/private-composer",
+    dependencies: ["lucide-react"],
+  },
+  {
+    name: "attachment-composer",
+    title: "Attachment Composer",
+    description: "A composer that shows attached files as removable chips.",
+    dir: "src/components/ui/attachment-composer",
+    dependencies: ["lucide-react"],
+  },
+  {
+    name: "follow-up",
+    title: "Follow-up Suggestions",
+    description: "A compact follow-up input with clickable suggestion chips.",
+    dir: "src/components/ui/follow-up",
+    dependencies: ["lucide-react"],
+  },
+  {
+    name: "inline-action",
+    title: "Inline Action",
+    description: "A block of content with a floating contextual AI action.",
+    dir: "src/components/ui/inline-action",
+    dependencies: ["lucide-react"],
+  },
+  {
+    name: "response-actions",
+    title: "Response Actions",
+    description:
+      "A change-response menu plus a feedback toolbar for AI answers.",
+    dir: "src/components/ui/response-actions",
+    dependencies: ["lucide-react"],
+  },
+  {
+    name: "parameters",
+    title: "Parameters",
+    description:
+      "A panel of sliders and a seed field for tuning generation parameters.",
+    dir: "src/components/ui/parameters",
+    dependencies: ["lucide-react"],
+  },
+  {
+    name: "caveat",
+    title: "Caveat",
+    description: "A disclaimer banner that warns users about AI limitations.",
+    dir: "src/components/ui/caveat",
+    dependencies: ["lucide-react"],
+  },
+  {
+    name: "ai-button",
+    title: "AI Button",
+    description: "A gradient call-to-action button for AI-powered actions.",
+    dir: "src/components/ui/ai-button",
+    dependencies: ["lucide-react"],
+  },
 ];
 
 const items = [];
@@ -25,7 +83,7 @@ const items = [];
 for (const entry of registry) {
   const absDir = join(root, entry.dir);
   const files = readdirSync(absDir).map((filename) => {
-    const target = `components/ui/prompt-composer/${filename}`;
+    const target = `components/ui/${entry.name}/${filename}`;
     return {
       path: target,
       target,

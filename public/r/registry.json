@@ -7,6 +7,46 @@
       "name": "prompt-composer",
       "title": "Prompt Composer",
       "description": "A polished chat/prompt composer — context pill, auto-growing input, attach, research toggle, source & model selectors, mic, and send."
+    },
+    {
+      "name": "private-composer",
+      "title": "Private Composer",
+      "description": "A dark, compact prompt composer with a private-mode toggle."
+    },
+    {
+      "name": "attachment-composer",
+      "title": "Attachment Composer",
+      "description": "A composer that shows attached files as removable chips."
+    },
+    {
+      "name": "follow-up",
+      "title": "Follow-up Suggestions",
+      "description": "A compact follow-up input with clickable suggestion chips."
+    },
+    {
+      "name": "inline-action",
+      "title": "Inline Action",
+      "description": "A block of content with a floating contextual AI action."
+    },
+    {
+      "name": "response-actions",
+      "title": "Response Actions",
+      "description": "A change-response menu plus a feedback toolbar for AI answers."
+    },
+    {
+      "name": "parameters",
+      "title": "Parameters",
+      "description": "A panel of sliders and a seed field for tuning generation parameters."
+    },
+    {
+      "name": "caveat",
+      "title": "Caveat",
+      "description": "A disclaimer banner that warns users about AI limitations."
+    },
+    {
+      "name": "ai-button",
+      "title": "AI Button",
+      "description": "A gradient call-to-action button for AI-powered actions."
     }
   ]
 }

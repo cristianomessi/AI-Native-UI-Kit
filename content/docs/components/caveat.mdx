@@ -1,0 +1,32 @@
+---
+title: Caveat
+description: A disclaimer banner that warns users about AI limitations.
+---
+
+<Preview>
+  <Caveat learnMoreHref="#" />
+</Preview>
+
+## Installation
+
+```bash
+npx shadcn@latest add https://ai-native-ui.com/r/caveat.json
+```
+
+## Usage
+
+```tsx
+import { Caveat } from "@/components/ui/caveat";
+
+<Caveat learnMoreHref="/docs/safety">
+  AI responses can be inaccurate or misleading.
+</Caveat>;
+```
+
+## Props
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `children` | `ReactNode` | Message text. |
+| `learnMoreHref` | `string` | Adds a "Learn more" link when set. |
+| `tone` | `"warning" \| "info" \| "neutral"` | Color treatment. |

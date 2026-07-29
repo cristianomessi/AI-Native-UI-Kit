@@ -1,0 +1,36 @@
+---
+title: Inline Action
+description: A block of content with a floating contextual AI action.
+---
+
+<Preview>
+  <InlineAction>
+    If people bring so much courage to this world the world has to kill them to
+    break them, so of course it kills them.
+  </InlineAction>
+</Preview>
+
+## Installation
+
+```bash
+npx shadcn@latest add https://ai-native-ui.com/r/inline-action.json
+```
+
+## Usage
+
+```tsx
+import { InlineAction } from "@/components/ui/inline-action";
+
+<InlineAction label="Improve Writing" onAction={() => rewrite()}>
+  {selectedText}
+</InlineAction>;
+```
+
+## Props
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `children` | `ReactNode` | The content the action applies to. |
+| `label` | `string` | Action button label. |
+| `icon` | `ReactNode` | Leading icon. |
+| `onAction` | `() => void` | Fires when the action is clicked. |

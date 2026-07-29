@@ -1,0 +1,36 @@
+---
+title: Private Composer
+description: A dark, compact prompt composer with a private-mode toggle.
+---
+
+<Preview>
+  <PrivateComposer />
+</Preview>
+
+## Installation
+
+```bash
+npx shadcn@latest add https://ai-native-ui.com/r/private-composer.json
+```
+
+## Usage
+
+```tsx
+import { PrivateComposer } from "@/components/ui/private-composer";
+
+<PrivateComposer
+  onSend={(text, isPrivate) => ask(text, { isPrivate })}
+  onPrivateToggle={(on) => setPrivate(on)}
+/>;
+```
+
+## Props
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `placeholder` | `string` | Input placeholder. |
+| `model` | `string` | Model label shown in the toolbar. |
+| `source` | `string` | Source label shown in the toolbar. |
+| `defaultPrivate` | `boolean` | Initial private-mode state. |
+| `onSend` | `(text: string, isPrivate: boolean) => void` | Fires on submit. |
+| `onPrivateToggle` | `(isPrivate: boolean) => void` | Fires when private mode toggles. |

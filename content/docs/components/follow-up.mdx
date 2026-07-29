@@ -1,0 +1,34 @@
+---
+title: Follow-up Suggestions
+description: A compact follow-up input with clickable suggestion chips.
+---
+
+<Preview>
+  <FollowUp />
+</Preview>
+
+## Installation
+
+```bash
+npx shadcn@latest add https://ai-native-ui.com/r/follow-up.json
+```
+
+## Usage
+
+```tsx
+import { FollowUp } from "@/components/ui/follow-up";
+
+<FollowUp
+  suggestions={["Identify key trends", "Find more sources"]}
+  onSend={(text) => ask(text)}
+/>;
+```
+
+## Props
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `suggestions` | `string[]` | Suggestion chips. |
+| `placeholder` | `string` | Input placeholder. |
+| `onSend` | `(text: string) => void` | Fires on submit / chip click. |
+| `onSelect` | `(text: string) => void` | Overrides chip behavior when set. |
