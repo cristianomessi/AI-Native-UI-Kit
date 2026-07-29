@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "ai-native-ui-kit",
+  "homepage": "https://ai-native-ui.com",
+  "items": [
+    {
+      "name": "prompt-composer",
+      "title": "Prompt Composer",
+      "description": "A polished chat/prompt composer — context pill, auto-growing input, attach, research toggle, source & model selectors, mic, and send."
+    }
+  ]
+}

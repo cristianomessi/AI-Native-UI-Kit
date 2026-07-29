@@ -1,0 +1,92 @@
+---
+title: Prompt Composer
+description: A polished chat/prompt composer — context pill, auto-growing input, attach, research toggle, source & model selectors, mic, and send.
+---
+
+<Preview>
+  <ComposerDemo />
+</Preview>
+
+## Installation
+
+<Tabs items={["CLI", "Manual"]}>
+
+<Tab value="CLI">
+
+```bash
+npx shadcn@latest add https://ai-native-ui.com/r/prompt-composer.json
+```
+
+</Tab>
+
+<Tab value="Manual">
+
+Copy `PromptComposer.tsx`, `PromptComposer.module.css`, and `icons.tsx` from the
+[registry](https://github.com/cristianomessi/ai-native-ui-kit) into
+`components/ui/prompt-composer/` in your project. It has no runtime dependencies
+beyond React.
+
+</Tab>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { PromptComposer } from "@/components/ui/prompt-composer";
+
+export default function Page() {
+  return (
+    <PromptComposer
+      placeholder="Learn something new..."
+      models={["Claude Opus 4.8", "GPT-5"]}
+      sources={[
+        { id: "all", label: "All sources" },
+        { id: "web", label: "Web" },
+      ]}
+      onSend={(text) => console.log("send:", text)}
+      onAttach={(files) => console.log("attach:", files)}
+    />
+  );
+}
+```
+
+## Props
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `value` / `defaultValue` | `string` | Controlled / uncontrolled input value. |
+| `placeholder` | `string` | Placeholder for the empty input. |
+| `onSend` | `(value: string) => void` | Fires on the send button or `Enter`. |
+| `onChange` | `(value: string) => void` | Fires on every keystroke. |
+| `onAttach` | `(files: FileList \| null) => void` | Opens a file picker and returns the selection. |
+| `research` / `defaultResearch` | `boolean` | Research toggle state. |
+| `onResearchToggle` | `(active: boolean) => void` | Fires when Research is toggled. |
+| `sources` | `{ id: string; label: string }[]` | Options for the source dropdown. |
+| `onSourceChange` | `(id: string) => void` | Fires when the source changes. |
+| `models` | `string[]` | Options for the model dropdown. |
+| `onModelChange` | `(model: string) => void` | Fires when the model changes. |
+| `onClose` | `() => void` | Shows the ✕ button when provided. |
+| `onMic` | `() => void` | Fires when the mic button is clicked. |
+| `disabled` | `boolean` | Disables the whole composer. |
+
+## Behavior
+
+- **`Enter`** sends; **`Shift + Enter`** inserts a newline.
+- The input **auto-grows** up to `maxRows` (default 8), then scrolls.
+- Send is disabled while the input is empty.
+- Dropdowns close on outside click or `Escape`.
+
+## Theming
+
+The component styles itself with CSS custom properties (all prefixed `--pc-`).
+Override them on the root to match your brand:
+
+```css
+.my-composer {
+  --pc-accent: #6d28d9;
+  --pc-radius: 16px;
+}
+```
+
+It also respects `prefers-color-scheme: dark` automatically.

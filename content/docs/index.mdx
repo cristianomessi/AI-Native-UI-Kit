@@ -1,0 +1,40 @@
+---
+title: Introduction
+description: Composable, accessible React components for building AI-native applications.
+---
+
+**AI Native UI Kit** is a set of copy-paste React components for building
+AI-native interfaces — chat inputs, message threads, model selectors, and more.
+
+- **Composable** — small building blocks you combine into your own UI.
+- **You own the code** — install via the shadcn CLI; components land in your repo.
+- **Accessible** — keyboard nav, ARIA roles, and focus states included.
+- **Themeable** — CSS variables and dark mode out of the box.
+
+## Quick start
+
+Add a component to your project with the shadcn CLI:
+
+```bash
+npx shadcn@latest add https://ai-native-ui.com/r/prompt-composer.json
+```
+
+Then import and use it:
+
+```tsx
+import { PromptComposer } from "@/components/ui/prompt-composer";
+
+export default function Page() {
+  return <PromptComposer onSend={(text) => console.log(text)} />;
+}
+```
+
+## Components
+
+<Cards>
+  <Card
+    title="Prompt Composer"
+    href="/docs/components/prompt-composer"
+    description="Chat input with context, attach, research, source & model selectors, mic, and send."
+  />
+</Cards>
