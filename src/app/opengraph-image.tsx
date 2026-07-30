@@ -56,7 +56,7 @@ export default function OpengraphImage() {
             marginBottom: 24,
           }}
         >
-          ✦ Components for AI-native apps
+          Components for AI-native apps
         </div>
         <div
           style={{
