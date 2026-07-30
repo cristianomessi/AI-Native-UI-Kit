@@ -121,12 +121,6 @@ export default function HomePage() {
               Browse components{" "}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
-            <Link
-              href="/docs/components/prompt-composer"
-              className="inline-flex items-center gap-2 rounded-lg border border-fd-border bg-fd-card/70 px-5 py-2.5 text-sm font-medium backdrop-blur transition-colors hover:bg-fd-accent"
-            >
-              View Prompt Composer
-            </Link>
           </div>
 
           {/* Live demo */}
